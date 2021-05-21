@@ -1,0 +1,1 @@
+[faas-cli](https://github.com/openfaas/faas-cli) packaged up in Nix.
