@@ -1,4 +1,4 @@
-with (import <nixpkgs> {} );
+with (import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/80fcac0b311031657783b721c935d2d9348dffee.tar.gz") {} );
 
 buildGoModule rec {
   pname = "faas-cli";
