@@ -1,0 +1,40 @@
+{
+  "nodes": {
+    "faas-cli-src": {
+      "flake": false,
+      "locked": {
+        "narHash": "sha256-Y6nji+lCxrrZxHgaXyqE6Fs9wZ6QmPp23nZbspPST4A=",
+        "type": "tarball",
+        "url": "https://github.com/openfaas/faas-cli/archive/refs/tags/0.13.9.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/openfaas/faas-cli/archive/refs/tags/0.13.9.tar.gz"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1622456856,
+        "narHash": "sha256-uvsP1HwSWH1ujkRBfJGa/0GnEge9jcEj7hTGP1x7X4k=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "38fce8ec004b3e61c241e3b64c683f719644f350",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-20.09",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "faas-cli-src": "faas-cli-src",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
