@@ -1,4 +1,4 @@
-with (import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/80fcac0b311031657783b721c935d2d9348dffee.tar.gz") {} );
+with (import (fetchTarball "https://github.com/NixOS/nixpkgs/archive/80fcac0b311031657783b721c935d2d9348dffee.tar.gz") { });
 
 buildGoModule rec {
   pname = "faas-cli";
@@ -17,13 +17,14 @@ buildGoModule rec {
   subPackages = [ "." ];
 
   CGO_ENABLED = 0;
-  buildFlagsArray = [ ''
-    -ldflags=
-    -s -w 
-    -X github.com/openfaas/faas-cli/version.GitCommit=${commit}
-    -X github.com/openfaas/faas-cli/version.Version=${version}
-    -X github.com/openfaas/faas-cli/commands.Platform=${builtins.currentSystem}
-    '' 
+  buildFlagsArray = [
+    ''
+      -ldflags=
+      -s -w 
+      -X github.com/openfaas/faas-cli/version.GitCommit=${commit}
+      -X github.com/openfaas/faas-cli/version.Version=${version}
+      -X github.com/openfaas/faas-cli/commands.Platform=${builtins.currentSystem}
+    ''
     "-a"
   ];
 
