@@ -4,13 +4,17 @@
   inputs =
     {
       nixpkgs.url = github:NixOS/nixpkgs/nixos-20.09;
+      flake-compat = {
+        url = "github:edolstra/flake-compat";
+        flake = false;
+      };
       faas-cli-src = {
         url = "https://github.com/openfaas/faas-cli/archive/refs/tags/0.13.9.tar.gz";
         flake = false;
       };
     };
 
-  outputs = { self, nixpkgs, faas-cli-src }: {
+  outputs = { self, nixpkgs, flake-compat, faas-cli-src }: {
     defaultPackage.x86_64-linux =
       with import nixpkgs
         {
