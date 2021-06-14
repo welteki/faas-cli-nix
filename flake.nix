@@ -9,7 +9,7 @@
         flake = false;
       };
       faas-cli-src = {
-        url = "https://github.com/openfaas/faas-cli/archive/refs/tags/0.13.9.tar.gz";
+        url = "https://github.com/openfaas/faas-cli/archive/refs/tags/0.13.11.tar.gz";
         flake = false;
       };
     };
@@ -24,8 +24,8 @@
         faas-cli = with final;
           buildGoModule rec {
             pname = "faas-cli";
-            version = "0.13.9";
-            commit = "2cec97955a254358de5443987bedf8ceee272cf8";
+            version = "0.13.11";
+            commit = "77ad215bcc6291dbf72c73caffe4d76aa2bb6fb1";
 
             src = "${faas-cli-src}";
 
