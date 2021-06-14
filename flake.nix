@@ -3,7 +3,7 @@
 
   inputs =
     {
-      nixpkgs.url = github:NixOS/nixpkgs/nixos-20.09;
+      nixpkgs.follows = "nix/nixpkgs";
       flake-compat = {
         url = "github:edolstra/flake-compat";
         flake = false;
@@ -14,7 +14,7 @@
       };
     };
 
-  outputs = { self, nixpkgs, flake-compat, faas-cli-src }:
+  outputs = { self, nixpkgs, nix, flake-compat, faas-cli-src }:
     let
       supportedSystems = [ "x86_64-linux" "i686-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" "armv7l-linux" ];
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
