@@ -17,6 +17,16 @@
   outputs = { self, nixpkgs, nix, flake-compat, faas-cli-src }:
     let
       supportedSystems = [ "x86_64-linux" "i686-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin" "armv7l-linux" ];
+
+      faasDefaultPlatforms = {
+        x86_64-linux = "x86_64";
+        i686-linux = "x86_64";
+        aarch64-linux = "arm64";
+        x86_64-darwin = "x86_64";
+        aarch64-darwin = "x86_64";
+        armv7l-linux = "armhf";
+      };
+
       forAllSystems = f: nixpkgs.lib.genAttrs supportedSystems (system: f system);
     in
     {
@@ -40,7 +50,7 @@
                 -s -w 
                 -X github.com/openfaas/faas-cli/version.GitCommit=${commit}
                 -X github.com/openfaas/faas-cli/version.Version=${version}
-                -X github.com/openfaas/faas-cli/commands.Platform=${system}
+                -X github.com/openfaas/faas-cli/commands.Platform=${faasDefaultPlatforms.${system}}
               ''
               "-a"
             ];
