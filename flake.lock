@@ -1,17 +1,5 @@
 {
   "nodes": {
-    "faas-cli-src": {
-      "flake": false,
-      "locked": {
-        "narHash": "sha256-qMcaW8b+/HSTQ2aJkgVuqkFu+iqu39Noo7Ni4f1UuVY=",
-        "type": "tarball",
-        "url": "https://github.com/openfaas/faas-cli/archive/refs/tags/0.13.13.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/openfaas/faas-cli/archive/refs/tags/0.13.13.tar.gz"
-      }
-    },
     "flake-compat": {
       "flake": false,
       "locked": {
@@ -80,7 +68,6 @@
     },
     "root": {
       "inputs": {
-        "faas-cli-src": "faas-cli-src",
         "flake-compat": "flake-compat",
         "nix": "nix",
         "nixpkgs": [
